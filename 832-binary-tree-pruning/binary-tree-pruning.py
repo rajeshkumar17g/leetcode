@@ -1,7 +1,7 @@
 class Solution:
     def pruneTree(self, root: TreeNode) -> TreeNode:
         
-        def traversal(root):
+        def traversal(root): # new solution
             if root==None:
                 return 0
             left_sum=traversal(root.left)
