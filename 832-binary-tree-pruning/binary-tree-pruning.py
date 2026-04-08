@@ -1,18 +1,9 @@
 class Solution:
     def pruneTree(self, root: TreeNode) -> TreeNode:
-        
-        def traversal(root): # new solution
-            if root==None:
-                return 0
-            left_sum=traversal(root.left)
-            right_sum=traversal(root.right)
-            if left_sum==0:
-                root.left=None
-            if right_sum==0:
-                root.right=None
-            return root.val+left_sum+right_sum
-        #--------------------------------------------
-        sum=traversal(root)
-        if(sum==0):
+        if root==None:
+            return None
+        root.left = self.pruneTree(root.left)
+        root.right = self.pruneTree(root.right)
+        if root.val == 0 and root.left==None and root.right==None:
             return None
         return root
