@@ -10,12 +10,8 @@ class Solution:
                 root.left=None
             if right_sum==0:
                 root.right=None
-            if not root.left and not root.right and root.val==0:
-                return 0
             return root.val+left_sum+right_sum
-            
         #--------------------------------------------
-        
         sum=traversal(root)
         if(sum==0):
             return None
