@@ -4,6 +4,8 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
         
@@ -16,4 +18,17 @@ class Solution:
         #-------------------------
         res=[]
         traversal(root)
-        return len(res)
+        return len(res)"""
+class Solution:
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        self.count=0
+        def traversal(root):
+            if root==None:
+                return
+            self.count=self.count+1
+            traversal(root.left)
+            traversal(root.right)
+        #-------------------------
+       
+        traversal(root)
+        return self.count
