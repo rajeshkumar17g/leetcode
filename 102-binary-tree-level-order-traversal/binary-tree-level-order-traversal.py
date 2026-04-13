@@ -1,19 +1,19 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root==None:
+            return []
         
-        def dfs(root,depth):
-            if root==None:
-                return
-            
-            if depth==len(res):
-                res.append([])
-            
-            res[depth].append(root.val)
-            dfs(root.left,depth+1)
-            dfs(root.right,depth+1)
-        #-----------------------------------
         res=[]
-        dfs(root,0)
+        q=deque([root])
+
+        while q:
+            level=[]
+            for _ in range(len(q)):
+                node=q.popleft()
+                level.append(node.val)
+                if node.left!=None:
+                    q.append(node.left)
+                if node.right!=None:
+                    q.append(node.right)
+            res.append(level)
         return res
-
-
