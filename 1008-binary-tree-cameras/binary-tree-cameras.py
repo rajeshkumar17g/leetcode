@@ -15,10 +15,11 @@ class Solution:
                 return 'camera'
             if left=='camera' or right=='camera':
                 return 'gap'
-            if left=="gap" or right=="gap":
+            if left=='gap' or right=="gap":
                 return "leaf"
             
+            
         #--------------------------------------
-        if dfs(root)=="leaf":
+        if dfs(root)=='leaf':
             return self.count+1
         return self.count
