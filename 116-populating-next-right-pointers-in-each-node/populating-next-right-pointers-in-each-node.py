@@ -10,12 +10,23 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        if root==None:
-            return
-        if root.left!=None:
-            root.left.next=root.right
-        if root.right!=None and root.next!=None:
-            root.right.next=root.next.left
-        self.connect(root.left)
-        self.connect(root.right)
+        
+        def dfs(root):
+            if not root:
+                return
+            if root.left:
+                root.left.next=root.right
+            if root.right and root.next:
+                root.right.next=root.next.left
+
+            dfs(root.left)
+            dfs(root.right)
+        #---------------
+        dfs(root)
         return root
+
+
+
+
+
+
