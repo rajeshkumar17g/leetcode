@@ -12,6 +12,7 @@ class Solution:
     def connect(self, root: 'Node') -> 'Node':
         if root==None:
             return root
+        
         q=deque([root])
         while q:
             level=[]
@@ -22,6 +23,8 @@ class Solution:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
+            
             for index in range(len(level)-1):
                 level[index].next=level[index+1]
+            
         return root
